@@ -36,6 +36,44 @@
   <link rel="preload" as="image" href="./assets/images/hero-slider-1.jpg">
   <link rel="preload" as="image" href="./assets/images/hero-slider-2.jpg">
   <link rel="preload" as="image" href="./assets/images/hero-slider-3.jpg">
+  <style>
+    /* Modal Styling */
+    .modal {
+        display: none;
+        position: fixed;
+        width: 300px;
+        height: 300px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: black; /* Blackish background */
+        padding: 20px;
+        border-radius: 5px;
+        color: white; /* Yellowish text color */
+        animation: fadeIn 3s ease; /* Fade in animation */
+        z-index: 100;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+
+        }
+        to {
+            opacity: 1;
+
+        }
+    }
+
+    /* Close button styling */
+    .close {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #ffffff; /* White color for close button */
+        cursor: pointer;
+    }
+</style>
 
 </head>
 
@@ -221,6 +259,15 @@
       <!-- 
         - #HERO
       -->
+<!-- Modal HTML -->
+<div id="myModal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <p>We have a great offer today:</p>
+  <ul>
+      <li>Offer 1: Buy one get one any pizza.</li>
+      <li>Offer 2: Get salad at 10% discount.</li>
+  </ul>
+</div>
 
       <section class="hero text-center" aria-label="home" id="home">
 
@@ -1218,6 +1265,22 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+    // Function to display the modal after 10 seconds
+    function displayModal() {
+        document.getElementById('myModal').style.display = 'block';
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+    }
+
+    // Wait for page load and then display the modal after 10 seconds
+    window.onload = function() {
+        setTimeout(displayModal, 1000); // 10 seconds delay
+    };
+</script>
 
 </body>
 
